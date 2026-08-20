@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { obsidianNotes } from "./generated-notes";
 
 type WatchStatus = "Collection" | "Wishlist" | "Dream";
 
@@ -42,7 +43,7 @@ const watches: Array<{
   },
 ];
 
-const notes = [
+const sampleNotes = [
   {
     category: "Watch notes",
     title: "What makes a good everyday watch?",
@@ -68,6 +69,8 @@ const notes = [
     read: "3 min",
   },
 ];
+
+const notes = obsidianNotes.length > 0 ? [...obsidianNotes] : sampleNotes;
 
 const filters: Array<"All" | WatchStatus> = [
   "All",
