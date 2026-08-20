@@ -2,10 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { obsidianNotes } from "./generated-notes";
+import { obsidianWatches } from "./generated-watches";
 
 type WatchStatus = "Collection" | "Wishlist" | "Dream";
 
-const watches: Array<{
+const watches = [...obsidianWatches] as Array<{
   name: string;
   brand: string;
   status: WatchStatus;
@@ -13,35 +14,7 @@ const watches: Array<{
   reference: string;
   accent: string;
   dial: string;
-}> = [
-  {
-    name: "Seiko 5 Sports",
-    brand: "Seiko",
-    status: "Collection",
-    detail: "Automatic · 42.5 mm",
-    reference: "SRPD55K1",
-    accent: "#c7a66a",
-    dial: "#151719",
-  },
-  {
-    name: "PRX Powermatic 80",
-    brand: "Tissot",
-    status: "Wishlist",
-    detail: "Automatic · 40 mm",
-    reference: "T137.407.11.041.00",
-    accent: "#a9b9be",
-    dial: "#24445f",
-  },
-  {
-    name: "Santos de Cartier",
-    brand: "Cartier",
-    status: "Dream",
-    detail: "Automatic · 39.8 mm",
-    reference: "WSSA0018",
-    accent: "#d5d0c7",
-    dial: "#eee9dd",
-  },
-];
+}>;
 
 const sampleNotes = [
   {
@@ -143,9 +116,9 @@ export default function Home() {
             field notes and future acquisitions.
           </p>
           <div className="hero-counts" aria-label="Archive totals">
-            <div><strong>01</strong><span>Owned</span></div>
-            <div><strong>01</strong><span>Wanted</span></div>
-            <div><strong>03</strong><span>Notes</span></div>
+            <div><strong>{String(watches.filter((watch) => watch.status === "Collection").length).padStart(2, "0")}</strong><span>Owned</span></div>
+            <div><strong>{String(watches.filter((watch) => watch.status === "Wishlist").length).padStart(2, "0")}</strong><span>Wanted</span></div>
+            <div><strong>{String(notes.length).padStart(2, "0")}</strong><span>Notes</span></div>
           </div>
         </div>
       </section>
@@ -156,7 +129,7 @@ export default function Home() {
             <span className="section-number">Module_01 / Objects</span>
             <h2>Watch database</h2>
           </div>
-          <p>Inventory status: synchronized<br />Records found: 003</p>
+          <p>Inventory status: synchronized<br />Records found: {String(watches.length).padStart(3, "0")}</p>
         </div>
 
         <div className="filter-row" role="group" aria-label="Filter watches">
