@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KC // Personal Archive",
-  description: "A self-hosted personal knowledge system for watches, research and field notes.",
+  title: "KC° — Watches & Notes",
+  description: "Watches collected, pieces still dreamt of, and notes gathered along the way.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",

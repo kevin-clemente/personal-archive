@@ -94,26 +94,26 @@ export default function Home() {
     <main className="interface-shell">
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Personal archive home">
-          <span>[</span>KC<span>]</span>
+          KC<span>°</span>
         </a>
         <nav aria-label="Main navigation">
-          <a href="#watches"><b>01</b> Watches</a>
-          <a href="#notes"><b>02</b> Notes</a>
-          <a href="#about"><b>03</b> About</a>
+          <a href="#watches">Watches</a>
+          <a href="#notes">Notes</a>
+          <a href="#about">About</a>
         </nav>
         <a className="header-index" href="#watches">
-          <i /> System online <span>↘</span>
+          <i /> Synced with Obsidian <span>↘</span>
         </a>
       </header>
 
       <section className="hero" id="top">
-        <div className="eyebrow"><span /> Personal knowledge system <b>v.01</b></div>
-        <div className="hero-code" aria-hidden="true">SYS.ARCHIVE<br />38.7223° N<br />09.1393° W</div>
-        <h1>Personal<br /><em>archive_</em></h1>
+        <div className="eyebrow"><span /> Personal archive <b>Since 2026</b></div>
+        <div className="hero-code" aria-hidden="true">Lisbon, Portugal<br />38.7223° N · 09.1393° W</div>
+        <h1>Things worth<br /><em>keeping close.</em></h1>
         <div className="hero-foot">
           <p>
-            A self-hosted index of watches, research,<br />
-            field notes and future acquisitions.
+            Watches collected, pieces still dreamt of,<br />
+            and notes gathered along the way.
           </p>
           <div className="hero-counts" aria-label="Archive totals">
             <div><strong>{String(watches.filter((watch) => watch.status === "Collection").length).padStart(2, "0")}</strong><span>Owned</span></div>
@@ -126,10 +126,10 @@ export default function Home() {
       <section className="watch-section" id="watches">
         <div className="section-heading">
           <div>
-            <span className="section-number">Module_01 / Objects</span>
-            <h2>Watch database</h2>
+            <span className="section-number">01 · The collection</span>
+            <h2>Watches, with stories.</h2>
           </div>
-          <p>Inventory status: synchronized<br />Records found: {String(watches.length).padStart(3, "0")}</p>
+          <p>{watches.length} pieces across the collection,<br />wishlist and distant dreams.</p>
         </div>
 
         <div className="filter-row" role="group" aria-label="Filter watches">
@@ -150,7 +150,7 @@ export default function Home() {
           {visibleWatches.map((watch, index) => (
             <article className="watch-card" key={watch.name}>
               <div className="watch-visual">
-                <span className="card-index">OBJ_0{index + 1}</span>
+                <span className="card-index">No. {String(index + 1).padStart(2, "0")}</span>
                 <span className={`status status-${watch.status.toLowerCase()}`}>{watch.status}</span>
                 <WatchFace dial={watch.dial} accent={watch.accent} />
               </div>
@@ -172,14 +172,14 @@ export default function Home() {
       <section className="notes-section" id="notes">
         <div className="section-heading notes-heading">
           <div>
-            <span className="section-number">Module_02 / Knowledge</span>
-            <h2>Memory logs</h2>
+            <span className="section-number">02 · Notes & thoughts</span>
+            <h2>From the notebook.</h2>
           </div>
           <label className="search-box">
             <span>⌕</span>
             <input
               type="search"
-              placeholder="QUERY DATABASE..."
+              placeholder="Search notes..."
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               aria-label="Search notes"
@@ -210,7 +210,7 @@ export default function Home() {
       </section>
 
       <section className="about-section" id="about">
-        <span className="section-number">Module_03 / System protocol</span>
+        <span className="section-number">03 · About this place</span>
         <p>
           Built slowly. Kept personally.<br />
           Written in <em>Obsidian</em>, synced with <em>iCloud</em>,<br />
@@ -219,9 +219,9 @@ export default function Home() {
       </section>
 
       <footer>
-        <a className="wordmark footer-mark" href="#top"><span>[</span>KC<span>]</span></a>
-        <p>Node: Lisbon_PT · Status: operational</p>
-        <a href="#top">Return to root ↑</a>
+        <a className="wordmark footer-mark" href="#top">KC<span>°</span></a>
+        <p>Personal archive · Lisbon, Portugal</p>
+        <a href="#top">Back to top ↑</a>
       </footer>
     </main>
   );
