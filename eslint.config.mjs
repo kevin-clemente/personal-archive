@@ -35,6 +35,12 @@ const eslintConfig = defineConfig([
         version: "detect",
       },
     },
+    rules: {
+      // vinext beta cannot complete RSC client navigation between the
+      // dashboard and the archive (the shared chunk throws during prefetch),
+      // so these pages intentionally use plain anchors for full navigation.
+      "@next/next/no-html-link-for-pages": "off",
+    },
   },
 ]);
 

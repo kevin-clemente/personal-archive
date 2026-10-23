@@ -1,0 +1,14 @@
+# Copy to .dev.vars for local development (never commit real values).
+PIHOLE_URL=http://pi.hole
+
+# Pi-hole v6: create an app password under Settings → API.
+PIHOLE_PASSWORD=
+
+# Pi-hole v5 only: use the API token instead of the password.
+# PIHOLE_API_TOKEN=
+
+# Optional: override the admin link shown on the dashboard.
+# PIHOLE_ADMIN_URL=http://pi.hole/admin
+
+# Optional: force the API version when auto-detection is ambiguous.
+# PIHOLE_VERSION=v6

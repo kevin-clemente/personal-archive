@@ -29,6 +29,21 @@ const worker = {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
     const url = new URL(request.url);
 
+    // Private archive data should never be served over plaintext in production.
+    // Local development and tests stay on HTTP.
+    const isLocalHost =
+      url.hostname === "localhost" ||
+      url.hostname === "127.0.0.1" ||
+      url.hostname === "0.0.0.0" ||
+      url.hostname === "[::1]" ||
+      url.hostname.endsWith(".localhost") ||
+      url.hostname.endsWith(".local");
+
+    if (url.protocol === "http:" && !isLocalHost) {
+      url.protocol = "https:";
+      return Response.redirect(url.toString(), 301);
+    }
+
     if (url.pathname === "/_vinext/image") {
       const allowedWidths = [...DEFAULT_DEVICE_SIZES, ...DEFAULT_IMAGE_SIZES];
       return handleImageOptimization(request, {

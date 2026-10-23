@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "./dashboard.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -13,13 +14,20 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "KC° — Watches & Notes",
-  description: "Watches collected, pieces still dreamt of, and notes gathered along the way.",
+  title: {
+    default: "KC° — Personal Archive",
+    template: "%s · KC°",
+  },
+  description:
+    "A private command center for the watch archive, published notes and the homelab.",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
   },
 };
+
+// Applies the saved theme before paint so the dashboard never flashes light.
+const themeScript = `try{var t=localStorage.getItem("kc-theme");var d=t==="dark"||(t!=="light"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.dataset.theme=d?"dark":"light";}catch(e){document.documentElement.dataset.theme="light";}`;
 
 export default function RootLayout({
   children,
@@ -27,10 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {children}
       </body>
     </html>

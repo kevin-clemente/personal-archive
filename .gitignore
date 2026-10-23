@@ -38,3 +38,12 @@ yarn-error.log*
 /.wrangler/
 /outputs/
 /work/
+
+# local headless browser for manual UI checks
+/.browsers/
+
+# local Cloudflare secrets
+.dev.vars
+
+# TypeScript incremental build info
+*.tsbuildinfo
