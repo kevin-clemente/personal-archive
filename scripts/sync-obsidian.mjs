@@ -248,12 +248,16 @@ function excellentPrice(value) {
   return price ? `≤ ${price} ideal` : null;
 }
 
-// Bullet-style specs are prose sentences, so collapse them to their first
-// clause for the compact fact chips on the card.
-function firstClause(value) {
+// Spec values are sometimes full sentences ("Rated 50 m / 5 ATM; current seal
+// condition not recorded"). The card shows a short chip; the expanded details
+// keep the complete value, so collapse to the first clause and cap the length.
+function chipValue(value) {
+  if (!value) return value;
   const cleaned = value.replace(/\s+/g, " ").replace(/[.;]+$/, "").trim();
   const clause = cleaned.split(/;\s|,\s/)[0]?.trim() ?? cleaned;
-  return clause.charAt(0).toUpperCase() + clause.slice(1);
+  const cased = clause.charAt(0).toUpperCase() + clause.slice(1);
+  if (cased.length <= 52) return cased;
+  return `${cased.slice(0, 52).replace(/[\s,;:–-]+\S*$/, "")}…`;
 }
 
 function findSpec(specs, pattern) {
@@ -415,8 +419,6 @@ async function extractWatches(files) {
     const specSection = section(body, "Specifications");
     const tableSpecs = tableRows(specSection);
     const specs = tableSpecs.length > 0 ? tableSpecs : bulletSpecs(specSection);
-    const specsAreProse = tableSpecs.length === 0 && specs.length > 0;
-    const cardValue = (value) => (value && specsAreProse ? firstClause(value) : value);
     const specText = specSection
       ? plainText(
           specSection
@@ -435,7 +437,7 @@ async function extractWatches(files) {
         ? data.reference.trim()
         : null;
 
-    const movementSpec = cardValue(findSpec(specs, /movement/i));
+    const movementSpec = chipValue(findSpec(specs, /movement/i));
     const movementFromText = /micro-rotor/i.test(specText)
       ? "Automatic micro-rotor"
       : /Powermatic 80/i.test(specText)
@@ -466,15 +468,15 @@ async function extractWatches(files) {
         ? `${data.case_size_mm} mm`
         : caseMm
           ? `${caseMm} mm`
-          : cardValue(caseRaw);
+          : chipValue(caseRaw);
 
     const waterResistance =
-      cardValue(findSpec(specs, /water resistance/i)) ??
+      chipValue(findSpec(specs, /water resistance/i)) ??
       (typeof data.water_resistance_m === "number" ? `${data.water_resistance_m} m` : null);
 
     const crystalFromText = specText.match(/\b(sapphire|mineral|acrylic|hesalite)\b/i)?.[1];
     const crystal =
-      cardValue(findSpec(specs, /crystal/i)) ??
+      chipValue(findSpec(specs, /crystal/i)) ??
       (typeof data.crystal === "string"
         ? titleCase(data.crystal)
         : crystalFromText
@@ -489,16 +491,16 @@ async function extractWatches(files) {
           ? "Leather strap"
           : null;
     const bracelet =
-      cardValue(findSpec(specs, /^(bracelet|strap)$/i)) ??
+      chipValue(findSpec(specs, /^(bracelet|strap)$/i)) ??
       braceletFromText ??
       (typeof data.bracelet === "string" ? braceletLabels[data.bracelet.toLowerCase()] ?? titleCase(data.bracelet) : null);
 
     const year =
-      cardValue(findSpec(specs, /^(year|period)$/i)) ??
+      chipValue(findSpec(specs, /^(year|period)$/i)) ??
       (typeof data.year === "number" ? String(data.year) : null);
 
     const madeIn =
-      cardValue(findSpec(specs, /^(made in|origin)$/i)) ??
+      chipValue(findSpec(specs, /^(made in|origin)$/i)) ??
       (typeof data.made_in === "string" ? titleCase(data.made_in) : null);
 
     const purchaseSection = section(body, "Purchase");

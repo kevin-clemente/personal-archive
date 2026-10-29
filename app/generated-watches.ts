@@ -13,12 +13,12 @@ export const obsidianWatches = [
     "categories": [
       "Chronograph"
     ],
-    "reference": "F20285/A",
-    "movement": "Quartz chronograph",
+    "reference": "F20285/4",
+    "movement": "Battery-powered quartz",
     "caseSize": "41.5 mm",
-    "waterResistance": "50 m / 5 ATM",
-    "crystal": "Mineral",
-    "bracelet": "Stainless steel",
+    "waterResistance": "Rated 50 m / 5 ATM",
+    "crystal": "Mineral glass",
+    "bracelet": "Silver-tone stainless-steel multi-row link bracelet",
     "year": null,
     "madeIn": null,
     "targetPrice": null,
@@ -32,50 +32,79 @@ export const obsidianWatches = [
     "notes": [
       "Steel bracelet.",
       "Black textured dial.",
+      "Reference confirmed by me as F20285/4 on 2026-10-29.",
       "No need to prioritise another quartz chronograph at the moment."
     ],
-    "specText": null,
+    "specText": "Festina Group — exact reference and specifications · Authorised retailer — chronograph and 24-hour functions",
     "specs": [
       {
-        "label": "Movement",
-        "value": "Quartz chronograph"
+        "label": "Collection",
+        "value": "Timeless Chronograph"
       },
       {
-        "label": "Case Diameter",
-        "value": "41.5 mm"
+        "label": "Reference",
+        "value": "F20285/4"
+      },
+      {
+        "label": "Movement",
+        "value": "Battery-powered quartz; Festina Group lists calibre MJS10"
+      },
+      {
+        "label": "Case",
+        "value": "Round stainless steel, silver tone"
+      },
+      {
+        "label": "Case diameter",
+        "value": "41.5 mm (Festina Group specification)"
       },
       {
         "label": "Dial",
-        "value": "Black textured"
+        "value": "Black, textured with radial grooves around the outer section"
+      },
+      {
+        "label": "Markers",
+        "value": "Silver-tone baton markers and Arabic 12"
       },
       {
         "label": "Crystal",
-        "value": "Mineral"
+        "value": "Mineral glass"
       },
       {
-        "label": "Water Resistance",
-        "value": "50 m / 5 ATM"
+        "label": "Water resistance",
+        "value": "Rated 50 m / 5 ATM; current seal condition not recorded"
       },
       {
         "label": "Bracelet",
-        "value": "Stainless steel"
+        "value": "Silver-tone stainless-steel multi-row link bracelet"
       },
       {
-        "label": "Complications",
-        "value": "Chronograph + 24-hour indication"
+        "label": "Bracelet width",
+        "value": "21.4 mm (Festina Group specification)"
+      },
+      {
+        "label": "Clasp",
+        "value": "Folding clasp"
+      },
+      {
+        "label": "Functions",
+        "value": "Time, chronograph and 24-hour indication"
+      },
+      {
+        "label": "Subdials",
+        "value": "24-hour indicator at 12, chronograph minutes at 9, chronograph seconds at 6"
       }
     ],
     "image": {
       "src": "/watches/festina-timeless-chronograph.webp",
-      "width": 548,
-      "height": 548,
-      "alt": "Festina Timeless Chronograph — F20285/A product image from an authorised Festina retailer.",
+      "width": 341,
+      "height": 550,
+      "alt": "Festina Timeless Chronograph — Exact F20285/4 product image from Festina Group.",
       "fit": "contain",
-      "background": null,
-      "caption": "F20285/A product image from an authorised Festina retailer.",
-      "source": "https://festinawatches.com/products/f20285-a"
+      "background": "rgb(219 219 220)",
+      "caption": "Exact F20285/4 product image from Festina Group.",
+      "source": "https://sklep.festina.pl/pl/festina-20285-4"
     },
-    "detail": "Quartz chronograph · 41.5 mm",
+    "detail": "Battery-powered quartz · 41.5 mm",
     "accent": "#aab4bb",
     "dial": "#14191d"
   },
@@ -269,11 +298,11 @@ export const obsidianWatches = [
     "dial": "#17191c"
   },
   {
-    "slug": "swatch-irony-big-pergamena",
+    "slug": "swatch-irony-big-cool-days",
     "number": 4,
-    "name": "Swatch Irony Big Pergamena",
+    "name": "Swatch Irony Big Cool Days",
     "brand": "Swatch",
-    "model": "Irony Big Pergamena",
+    "model": "Irony Big Cool Days",
     "status": "Collection",
     "priority": "owned",
     "priorityRank": 0,
@@ -282,71 +311,112 @@ export const obsidianWatches = [
       "Everyday",
       "Day-Date"
     ],
-    "reference": "YGS708A/B",
+    "reference": "YGS716GX",
     "movement": "Swiss quartz",
     "caseSize": "37.4 mm",
-    "waterResistance": "30 m / 3 bar",
-    "crystal": null,
-    "bracelet": "Flexible stainless steel",
-    "year": "1997",
-    "madeIn": "Swiss Made 🇨🇭",
+    "waterResistance": "Rated 30 m / 3 bar",
+    "crystal": "Plastic",
+    "bracelet": "Polished stainless-steel link bracelet",
+    "year": "1999",
+    "madeIn": "Swiss Made",
     "targetPrice": null,
     "idealPrice": null,
     "purchasePrice": null,
-    "summary": "A classic late-1990s Swatch Irony with a very distinctive design.",
-    "thoughts": "A classic late-1990s Swatch Irony with a very distinctive design.",
+    "summary": "My owned Swatch Irony Big, confirmed as reference YGS716GX on 2026-10-29.",
+    "thoughts": "My owned Swatch Irony Big, confirmed as reference YGS716GX on 2026-10-29.",
     "personalNotes": null,
     "purchaseNote": "Purchase details not recorded.",
     "purchaseLead": "Purchase details not recorded.",
     "notes": [
-      "1997 model.",
-      "Flexible steel bracelet.",
-      "Quartz counterpart to my automatic Body & Soul."
+      "Release year and seasonal collection supplied by me: 1999, Fall/Winter 1999 (recorded 2026-10-29).",
+      "Stainless-steel link bracelet with folding clasp.",
+      "Quartz day/date counterpart to my automatic Body & Soul.",
+      "Identification corrected to Cool Days YGS716GX on 2026-10-29 using my confirmation and the matching product photo."
     ],
-    "specText": null,
+    "specText": "Dimensions and battery compatibility are retailer-listed specifications, not measurements of my own watch. Sources Official Swatch Cool Days YGS716GX identification Watchpapst — specifications and compatible battery Fecarotta — dial, case and bracelet description",
     "specs": [
       {
+        "label": "Collection",
+        "value": "Irony Big"
+      },
+      {
+        "label": "Model",
+        "value": "Cool Days"
+      },
+      {
         "label": "Movement",
-        "value": "Swiss quartz"
+        "value": "Swiss quartz, battery-powered; exact calibre not verified"
       },
       {
         "label": "Battery",
-        "value": "377 / SR626SW"
+        "value": "Renata 377 / SR626SW, 1.55 V (listed compatible replacement)"
+      },
+      {
+        "label": "Display",
+        "value": "Analogue hours, minutes and seconds"
       },
       {
         "label": "Complications",
-        "value": "Day + Date"
+        "value": "Day and date at 3 o’clock"
       },
       {
-        "label": "Case Diameter",
-        "value": "37.4 mm"
+        "label": "Case",
+        "value": "Polished stainless steel, round"
+      },
+      {
+        "label": "Case diameter",
+        "value": "Approximately 37.4 mm, excluding crown"
+      },
+      {
+        "label": "Case thickness",
+        "value": "Approximately 10.4 mm"
+      },
+      {
+        "label": "Crystal",
+        "value": "Plastic"
+      },
+      {
+        "label": "Dial",
+        "value": "Silver sunbrushed dial with large Arabic numerals"
+      },
+      {
+        "label": "Bezel",
+        "value": "Steel with Swatch lettering"
       },
       {
         "label": "Bracelet",
-        "value": "Flexible stainless steel"
+        "value": "Polished stainless-steel link bracelet"
       },
       {
-        "label": "Water Resistance",
-        "value": "30 m / 3 bar"
+        "label": "Clasp",
+        "value": "Safety folding clasp"
+      },
+      {
+        "label": "Water resistance",
+        "value": "Rated 30 m / 3 bar; current seal condition not recorded"
       },
       {
         "label": "Origin",
-        "value": "Swiss Made 🇨🇭"
+        "value": "Swiss Made"
       },
       {
-        "label": "Year",
-        "value": "1997"
+        "label": "Release year",
+        "value": "1999"
+      },
+      {
+        "label": "Seasonal collection",
+        "value": "Fall/Winter 1999"
       }
     ],
     "image": {
-      "src": "/watches/swatch-irony-big-pergamena.webp",
-      "width": 824,
-      "height": 918,
-      "alt": "Swatch Irony Big Pergamena — Official YGS708 image. The pictured strap is leather; my YGS708A/B has a steel bracelet.",
+      "src": "/watches/swatch-irony-big-cool-days.webp",
+      "width": 1100,
+      "height": 880,
+      "alt": "Swatch Irony Big Cool Days — Exact appearance confirmed by me. Image source — Bablas.",
       "fit": "contain",
-      "background": null,
-      "caption": "Official YGS708 image. The pictured strap is leather; my YGS708A/B has a steel bracelet.",
-      "source": "https://static.swatch.com/images/product/YGS708/sa200/YGS708_sa200_er005.png"
+      "background": "rgb(248 247 247)",
+      "caption": "Exact appearance confirmed by me. Image source — Bablas.",
+      "source": null
     },
     "detail": "Swiss quartz · 37.4 mm",
     "accent": "#8ba4a9",
@@ -367,7 +437,7 @@ export const obsidianWatches = [
       "Pilot"
     ],
     "reference": "GL0304",
-    "movement": "Sellita SW330-2 automatic; 25 jewels",
+    "movement": "Sellita SW330-2 automatic",
     "caseSize": "40 mm",
     "waterResistance": "30 m",
     "crystal": "Sapphire",
@@ -428,7 +498,7 @@ export const obsidianWatches = [
       "caption": "Exact GL0304, official Glycine product image.",
       "source": "https://www.glycinewatches.com/products/glycine-gl0304"
     },
-    "detail": "Sellita SW330-2 automatic; 25 jewels · 40 mm",
+    "detail": "Sellita SW330-2 automatic · 40 mm",
     "accent": "#8f9caa",
     "dial": "#122d48"
   },
@@ -447,11 +517,11 @@ export const obsidianWatches = [
       "Alpinist"
     ],
     "reference": "SPB507J1",
-    "movement": "Seiko calibre 6R55 automatic, manual winding; 24 jewels; 72 h power reserve",
+    "movement": "Seiko calibre 6R55 automatic",
     "caseSize": "39.5 mm",
     "waterResistance": "20 bar (200 m)",
-    "crystal": "Sapphire with magnifier; anti-reflective coating on inner surface",
-    "bracelet": "Brown cow leather; three-fold clasp with push-button release",
+    "crystal": "Sapphire with magnifier",
+    "bracelet": "Brown cow leather",
     "year": null,
     "madeIn": null,
     "targetPrice": "Under €900",
@@ -536,7 +606,7 @@ export const obsidianWatches = [
       "caption": "Exact SPB507J1, official Seiko product image.",
       "source": "https://www.seikowatches.com/us-en/products/prospex/spb507j1"
     },
-    "detail": "Seiko calibre 6R55 automatic, manual winding; 24 jewels; 72 h power reserve · 39.5 mm",
+    "detail": "Seiko calibre 6R55 automatic · 39.5 mm",
     "accent": "#a79a86",
     "dial": "#202018"
   },
@@ -1006,7 +1076,7 @@ export const obsidianWatches = [
     "movement": "Automatic Mido Caliber 80",
     "caseSize": "40 mm",
     "waterResistance": "5 bar / 50 m",
-    "crystal": "Sapphire with antireflective coating on the underside",
+    "crystal": "Sapphire with antireflective coating on the…",
     "bracelet": "Black PVD-coated stainless steel",
     "year": null,
     "madeIn": null,
@@ -1127,7 +1197,7 @@ export const obsidianWatches = [
       "Moon-Phase"
     ],
     "reference": "IW503302",
-    "movement": "IWC-manufactured automatic movement with Pellaton winding",
+    "movement": "IWC-manufactured automatic movement with Pellaton…",
     "caseSize": "44.2 mm",
     "waterResistance": null,
     "crystal": "Sapphire",
@@ -1180,7 +1250,7 @@ export const obsidianWatches = [
       "caption": "Official image of reference IW503302.",
       "source": "https://www.iwc.com/us-en/watches/portugieser/iw503302-portugieser-perpetual-calendar"
     },
-    "detail": "IWC-manufactured automatic movement with Pellaton winding · 44.2 mm",
+    "detail": "IWC-manufactured automatic movement with Pellaton… · 44.2 mm",
     "accent": "#a79a86",
     "dial": "#202018"
   }
