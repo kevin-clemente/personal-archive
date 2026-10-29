@@ -1110,6 +1110,79 @@ export const obsidianWatches = [
     "detail": "Automatic",
     "accent": "#8f9caa",
     "dial": "#122d48"
+  },
+  {
+    "slug": "iwc-portugieser-perpetual-calendar",
+    "number": 18,
+    "name": "IWC Portugieser Perpetual Calendar",
+    "brand": "IWC",
+    "model": "Portugieser Perpetual Calendar",
+    "status": "Grail",
+    "priority": "grail",
+    "priorityRank": 8,
+    "priorityLabel": "Ultimate goal",
+    "categories": [
+      "Dress",
+      "Perpetual-Calendar",
+      "Moon-Phase"
+    ],
+    "reference": "IW503302",
+    "movement": "IWC-manufactured automatic movement with Pellaton winding",
+    "caseSize": "44.2 mm",
+    "waterResistance": null,
+    "crystal": "Sapphire",
+    "bracelet": "Dark brown alligator leather by Santoni",
+    "year": null,
+    "madeIn": null,
+    "targetPrice": null,
+    "idealPrice": null,
+    "purchasePrice": null,
+    "summary": "Another dream watch alongside the Audemars Piguet Code 11.59 Starwheel. The exact desired reference is IW503302: silver dial, 18 ct 5N gold case and dark brown leather strap.",
+    "thoughts": null,
+    "personalNotes": "Another dream watch alongside the Audemars Piguet Code 11.59 Starwheel. The exact desired reference is IW503302: silver dial, 18 ct 5N gold case and dark brown leather strap.",
+    "purchaseNote": "Dream watch for one day, added on 2026-10-29. No purchase budget or timeline recorded.",
+    "purchaseLead": "Dream watch for one day, added on 2026-10-29. No purchase budget or timeline recorded.",
+    "notes": [],
+    "specText": "Perpetual moon phase display; IWC states a one-day deviation in 577.5 years. Small hacking seconds. Sapphire crystal with antireflective coating on both sides. Official IWC product page",
+    "specs": [
+      {
+        "label": "Case",
+        "value": "18 ct 5N gold, 44.2 mm diameter"
+      },
+      {
+        "label": "Dial",
+        "value": "silver"
+      },
+      {
+        "label": "Movement",
+        "value": "IWC-manufactured automatic movement with Pellaton winding"
+      },
+      {
+        "label": "Power reserve",
+        "value": "7 days (168 hours), with power reserve display"
+      },
+      {
+        "label": "Perpetual calendar",
+        "value": "date, day, month and four-digit year"
+      },
+      {
+        "label": "Strap",
+        "value": "dark brown alligator leather by Santoni"
+      }
+    ],
+    "image": {
+      "src": "/watches/iwc-portugieser-perpetual-calendar.webp",
+      "width": 352,
+      "height": 384,
+      "alt": "IWC Portugieser Perpetual Calendar — Official image of reference IW503302.",
+      "fit": "contain",
+      "background": null,
+      "caption": "Official image of reference IW503302.",
+      "source": "https://www.iwc.com/us-en/watches/portugieser/iw503302-portugieser-perpetual-calendar"
+    },
+    "detail": "IWC-manufactured automatic movement with Pellaton winding · 44.2 mm",
+    "accent": "#a79a86",
+    "dial": "#202018"
   }
 ] as const;
 export const watchPlan = {
@@ -1190,6 +1263,12 @@ export const watchPlan = {
       "slug": "audemars-piguet-code-11-59-starwheel",
       "target": null,
       "note": "Ultimate dream watch; no purchase budget or timeline recorded."
+    },
+    {
+      "name": "IWC Portugieser Perpetual Calendar",
+      "slug": "iwc-portugieser-perpetual-calendar",
+      "target": null,
+      "note": "Dream watch for one day, added on 2026-10-29. No purchase budget or timeline recorded."
     }
   ],
   "strategy": [
@@ -1199,6 +1278,7 @@ export const watchPlan = {
     "The Seiko Alpinist sits alongside Hamilton in the near-term queue: it adds an outdoor/land watch with a compass bezel and the collection's first green dial."
   ],
   "rules": [
+    "Always include a photo when adding a watch note, preferably an official image of the exact reference, saved locally in the vault and embedded in the note.",
     "Buy watches I genuinely want to wear; avoid buying simply because they are cheap.",
     "Do not overbid at auction. Compare the all-in auction price, including fees, shipping and imports, with the new and used market.",
     "When possible, buy the bracelet version and add straps later.",

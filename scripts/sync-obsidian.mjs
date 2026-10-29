@@ -453,22 +453,33 @@ async function extractWatches(files) {
       : null;
     const movement = movementSpec ?? movementFromText ?? movementFromFrontmatter;
 
-    const caseFromText = specText.match(/(\d+(?:\.\d+)?)\s*mm/i)?.[1];
+    const caseRaw =
+      findSpec(specs, /^(case|case diameter|case size)$/i) ??
+      findSpec(specs, /case (diameter|size)/i);
+    // Case rows often describe materials too ("18 ct 5N gold, 44.2 mm"), so
+    // prefer an explicit measurement when the row contains one.
+    const caseMm =
+      caseRaw?.match(/(\d+(?:\.\d+)?)\s*mm/i)?.[1] ??
+      specText.match(/(\d+(?:\.\d+)?)\s*mm/i)?.[1];
     const caseSize =
       typeof data.case_size_mm === "number"
         ? `${data.case_size_mm} mm`
-        : cardValue(
-            findSpec(specs, /^(case|case diameter|case size)$/i) ??
-              findSpec(specs, /case (diameter|size)/i),
-          ) ?? (caseFromText ? `${caseFromText} mm` : null);
+        : caseMm
+          ? `${caseMm} mm`
+          : cardValue(caseRaw);
 
     const waterResistance =
       cardValue(findSpec(specs, /water resistance/i)) ??
       (typeof data.water_resistance_m === "number" ? `${data.water_resistance_m} m` : null);
 
+    const crystalFromText = specText.match(/\b(sapphire|mineral|acrylic|hesalite)\b/i)?.[1];
     const crystal =
       cardValue(findSpec(specs, /crystal/i)) ??
-      (typeof data.crystal === "string" ? titleCase(data.crystal) : null);
+      (typeof data.crystal === "string"
+        ? titleCase(data.crystal)
+        : crystalFromText
+          ? titleCase(crystalFromText)
+          : null);
 
     const braceletFromText = /steel bracelet/i.test(specText)
       ? "Steel bracelet"

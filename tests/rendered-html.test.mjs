@@ -63,6 +63,7 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /Swatch Irony Automatic Body &amp; Soul/);
   assert.match(html, /Orient Classic\/Contemporary Day-Date/);
   assert.match(html, /Seiko Prospex Alpinist/);
+  assert.match(html, /IWC Portugieser Perpetual Calendar/);
   assert.match(html, /Glycine Airman Vintage The Chief GMT 40/);
   assert.match(html, /Next purchase/);
   assert.match(html, /\/watches\/glycine-airman-vintage-the-chief-gmt-40\.webp/);
@@ -70,8 +71,8 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /The order I/);
   assert.match(html, /Audemars Piguet Code 11\.59 Starwheel/);
   assert.match(html, /Ultimate goal/);
-  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 17);
-  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 17);
+  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 18);
+  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 18);
   assert.match(html, /href="\/"/);
 });
 
