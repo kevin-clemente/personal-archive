@@ -989,8 +989,75 @@ export const obsidianWatches = [
     "dial": "#17191c"
   },
   {
-    "slug": "audemars-piguet-code-11-59-starwheel",
+    "slug": "mido-commander-gradient",
     "number": 16,
+    "name": "Mido Commander Gradient",
+    "brand": "Mido",
+    "model": "Commander Gradient",
+    "status": "Wishlist",
+    "priority": "undecided",
+    "priorityRank": 8,
+    "priorityLabel": "Undecided",
+    "categories": [
+      "Everyday",
+      "Skeleton"
+    ],
+    "reference": "M021.407.33.411.00",
+    "movement": "Automatic Mido Caliber 80",
+    "caseSize": "40 mm",
+    "waterResistance": "5 bar / 50 m",
+    "crystal": "Sapphire with antireflective coating on the underside",
+    "bracelet": "Black PVD-coated stainless steel",
+    "year": null,
+    "madeIn": null,
+    "targetPrice": null,
+    "idealPrice": null,
+    "purchasePrice": null,
+    "summary": "Interested in the all-black finish and smoky transparent dial. Buy for wearing and enjoyment; do not count on appreciation.",
+    "thoughts": null,
+    "personalNotes": "Interested in the all-black finish and smoky transparent dial. Buy for wearing and enjoyment; do not count on appreciation.",
+    "purchaseNote": "Added to wishlist on 2026-10-29. Purchase priority and target price are undecided. Price context checked on 2026-10-29: Mido Germany listed €1,260; Uhrinstinkt advertised approximately €980 including German VAT. These are asking prices, not completed-sale values; recheck availability, final VAT, shipping and warranty before buying. Official German listing · Retailer comparison",
+    "purchaseLead": "Added to wishlist on 2026-10-29. Purchase priority and target price are undecided.",
+    "notes": [],
+    "specText": "Display case back; luminous hands and indexes. Official Mido product page",
+    "specs": [
+      {
+        "label": "Case",
+        "value": "40 mm, approximately 10.8 mm thick; black PVD-coated stainless steel"
+      },
+      {
+        "label": "Bracelet",
+        "value": "black PVD-coated stainless steel, butterfly clasp"
+      },
+      {
+        "label": "Dial",
+        "value": "smoky gradient transparent acrylic dial revealing the movement"
+      },
+      {
+        "label": "Crystal",
+        "value": "sapphire with antireflective coating on the underside"
+      },
+      {
+        "label": "Movement",
+        "value": "automatic Mido Caliber 80; up to 80 hours of power reserve; date"
+      },
+      {
+        "label": "Water resistance",
+        "value": "5 bar / 50 m"
+      },
+      {
+        "label": "Lug width",
+        "value": "21 mm"
+      }
+    ],
+    "image": null,
+    "detail": "Automatic Mido Caliber 80 · 40 mm",
+    "accent": "#8ba4a9",
+    "dial": "#183640"
+  },
+  {
+    "slug": "audemars-piguet-code-11-59-starwheel",
+    "number": 17,
     "name": "Audemars Piguet Code 11.59 Starwheel",
     "brand": "Audemars Piguet",
     "model": "Code 11.59 Starwheel",
@@ -1032,8 +1099,8 @@ export const obsidianWatches = [
       "source": "https://www.audemarspiguet.com/us/en/watch-collection/code-1159/15212NB.OO.A002KB.01-AB"
     },
     "detail": "Automatic",
-    "accent": "#8ba4a9",
-    "dial": "#183640"
+    "accent": "#8f9caa",
+    "dial": "#122d48"
   }
 ] as const;
 export const watchPlan = {

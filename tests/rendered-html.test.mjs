@@ -41,7 +41,7 @@ test("renders the dashboard as the home page", async () => {
   assert.match(html, /Pi-hole/);
   assert.match(html, /Every app, one list\./);
   assert.match(html, /Search apps (&amp;|&) notes/);
-  assert.match(html, /Wishlist<\/span><strong>11<\/strong>/);
+  assert.match(html, /Wishlist<\/span><strong>12<\/strong>/);
   assert.match(html, /Owned<\/span><strong>04<\/strong>/);
   assert.doesNotMatch(html, /Your site is taking shape|react-loading-skeleton/);
 });
@@ -70,7 +70,7 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /The order I/);
   assert.match(html, /Audemars Piguet Code 11\.59 Starwheel/);
   assert.match(html, /Ultimate goal/);
-  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 16);
+  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 17);
   assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 16);
   assert.match(html, /href="\/"/);
 });

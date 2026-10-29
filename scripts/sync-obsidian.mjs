@@ -156,6 +156,22 @@ function tableRows(markdown) {
     .filter((row) => row.label && row.value);
 }
 
+// Some notes describe specs as `- Label: value` bullets instead of a table.
+// Treat those as spec rows so cards get the same structured detail view.
+const BULLET_SPEC = /^\s*[-*]\s+([A-Za-z][A-Za-z0-9 /&()'.—-]{0,40}):\s+(.+)$/;
+
+function bulletSpecs(markdown) {
+  return markdown
+    .split("\n")
+    .map((line) => line.match(BULLET_SPEC))
+    .filter(Boolean)
+    .map((match) => ({
+      label: plainText(match[1]),
+      value: plainText(match[2]).replace(/[.;]+$/, ""),
+    }))
+    .filter((row) => row.label && row.value);
+}
+
 function bullets(markdown) {
   return markdown
     .split("\n")
@@ -232,6 +248,14 @@ function excellentPrice(value) {
   return price ? `≤ ${price} ideal` : null;
 }
 
+// Bullet-style specs are prose sentences, so collapse them to their first
+// clause for the compact fact chips on the card.
+function firstClause(value) {
+  const cleaned = value.replace(/\s+/g, " ").replace(/[.;]+$/, "").trim();
+  const clause = cleaned.split(/;\s|,\s/)[0]?.trim() ?? cleaned;
+  return clause.charAt(0).toUpperCase() + clause.slice(1);
+}
+
 function findSpec(specs, pattern) {
   return specs.find((spec) => pattern.test(spec.label))?.value ?? null;
 }
@@ -254,6 +278,7 @@ function priorityLabel(priority, status) {
   if (priority === "premium") return "Premium target";
   if (priority === "low") return "Low priority";
   if (priority === "alternative") return "Alternative";
+  if (priority === "undecided") return "Undecided";
   return "Wishlist";
 }
 
@@ -388,12 +413,15 @@ async function extractWatches(files) {
     const name = watchName(data, heading);
     const slug = slugify(name);
     const specSection = section(body, "Specifications");
-    const specs = tableRows(specSection);
+    const tableSpecs = tableRows(specSection);
+    const specs = tableSpecs.length > 0 ? tableSpecs : bulletSpecs(specSection);
+    const specsAreProse = tableSpecs.length === 0 && specs.length > 0;
+    const cardValue = (value) => (value && specsAreProse ? firstClause(value) : value);
     const specText = specSection
       ? plainText(
           specSection
             .split("\n")
-            .filter((line) => !line.trim().startsWith("|"))
+            .filter((line) => !line.trim().startsWith("|") && !BULLET_SPEC.test(line))
             .join("\n"),
         )
       : "";
@@ -407,7 +435,7 @@ async function extractWatches(files) {
         ? data.reference.trim()
         : null;
 
-    const movementSpec = findSpec(specs, /movement/i);
+    const movementSpec = cardValue(findSpec(specs, /movement/i));
     const movementFromText = /micro-rotor/i.test(specText)
       ? "Automatic micro-rotor"
       : /Powermatic 80/i.test(specText)
@@ -429,14 +457,17 @@ async function extractWatches(files) {
     const caseSize =
       typeof data.case_size_mm === "number"
         ? `${data.case_size_mm} mm`
-        : findSpec(specs, /case (diameter|size)/i) ?? (caseFromText ? `${caseFromText} mm` : null);
+        : cardValue(
+            findSpec(specs, /^(case|case diameter|case size)$/i) ??
+              findSpec(specs, /case (diameter|size)/i),
+          ) ?? (caseFromText ? `${caseFromText} mm` : null);
 
     const waterResistance =
-      findSpec(specs, /water resistance/i) ??
+      cardValue(findSpec(specs, /water resistance/i)) ??
       (typeof data.water_resistance_m === "number" ? `${data.water_resistance_m} m` : null);
 
     const crystal =
-      findSpec(specs, /crystal/i) ??
+      cardValue(findSpec(specs, /crystal/i)) ??
       (typeof data.crystal === "string" ? titleCase(data.crystal) : null);
 
     const braceletFromText = /steel bracelet/i.test(specText)
@@ -447,16 +478,16 @@ async function extractWatches(files) {
           ? "Leather strap"
           : null;
     const bracelet =
-      findSpec(specs, /^(bracelet|strap)$/i) ??
+      cardValue(findSpec(specs, /^(bracelet|strap)$/i)) ??
       braceletFromText ??
       (typeof data.bracelet === "string" ? braceletLabels[data.bracelet.toLowerCase()] ?? titleCase(data.bracelet) : null);
 
     const year =
-      findSpec(specs, /^(year|period)$/i) ??
+      cardValue(findSpec(specs, /^(year|period)$/i)) ??
       (typeof data.year === "number" ? String(data.year) : null);
 
     const madeIn =
-      findSpec(specs, /^(made in|origin)$/i) ??
+      cardValue(findSpec(specs, /^(made in|origin)$/i)) ??
       (typeof data.made_in === "string" ? titleCase(data.made_in) : null);
 
     const purchaseSection = section(body, "Purchase");

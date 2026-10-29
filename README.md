@@ -159,9 +159,10 @@ Watch data comes from the structured notes under `Watches/`:
 
 Each note uses flat frontmatter (`brand`, `model`, `reference`, `status`,
 `category`, `movement`, `priority`, `target_price_eur`, `case_size_mm`, and so
-on), a `## Specifications` table (or a prose paragraph), and a `## Photos`
+on), a `## Specifications` table or `- Label: value` bullets, and a `## Photos`
 embed such as
 `![[Watches/Attachments/Product Images/Swatch-Irony-Automatic-Body-Soul-YAS100G.png|360]]`.
+Notes without a photo still render, using the CSS dial illustration.
 The importer:
 
 - copies the first image to `public/watches/<slug>.webp`, resizing it with
