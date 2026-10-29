@@ -71,7 +71,7 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /Audemars Piguet Code 11\.59 Starwheel/);
   assert.match(html, /Ultimate goal/);
   assert.equal((html.match(/class="watch-card"/g) ?? []).length, 17);
-  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 16);
+  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 17);
   assert.match(html, /href="\/"/);
 });
 

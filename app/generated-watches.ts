@@ -1050,7 +1050,16 @@ export const obsidianWatches = [
         "value": "21 mm"
       }
     ],
-    "image": null,
+    "image": {
+      "src": "/watches/mido-commander-gradient.webp",
+      "width": 1100,
+      "height": 1100,
+      "alt": "Mido Commander Gradient — Official Mido product image, exact reference M021.407.33.411.00.",
+      "fit": "contain",
+      "background": null,
+      "caption": "Official Mido product image, exact reference M021.407.33.411.00.",
+      "source": "https://www.midowatches.com/ca-en/commander-gradient-m0214073341100.html"
+    },
     "detail": "Automatic Mido Caliber 80 · 40 mm",
     "accent": "#8ba4a9",
     "dial": "#183640"
