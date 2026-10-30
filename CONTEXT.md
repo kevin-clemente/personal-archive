@@ -2,7 +2,7 @@
 
 Snapshot: 2026-10-23 · branch `main` · base commit `cfc70ee` plus the dashboard and watch-archive
 work in the working tree. Verified on this machine with Node 26.12.0 / npm 11.20.0: `npm run build`,
-`npm run lint` and `npm test` pass. The watch archive now holds 18 pieces (4 owned, 12 wishlist,
+`npm run lint` and `npm test` pass. The watch archive now holds 19 pieces (5 owned, 12 wishlist,
 2 grails), each with an optimised product image. The site is deployed at
 `https://kc-personal-archive.kvan-dev.workers.dev`; `/`, `/archive` and `/api/pihole`
 return 200 over HTTPS, and 20/20 sampled dashboard requests succeeded.

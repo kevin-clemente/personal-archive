@@ -42,7 +42,7 @@ test("renders the dashboard as the home page", async () => {
   assert.match(html, /Every app, one list\./);
   assert.match(html, /Search apps (&amp;|&) notes/);
   assert.match(html, /Wishlist<\/span><strong>12<\/strong>/);
-  assert.match(html, /Owned<\/span><strong>04<\/strong>/);
+  assert.match(html, /Owned<\/span><strong>05<\/strong>/);
   assert.doesNotMatch(html, /Your site is taking shape|react-loading-skeleton/);
 });
 
@@ -64,6 +64,7 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /Orient Classic\/Contemporary Day-Date/);
   assert.match(html, /Seiko Prospex Alpinist/);
   assert.match(html, /IWC Portugieser Perpetual Calendar/);
+  assert.match(html, /Citizen Promaster Altichron/);
   assert.match(html, /Glycine Airman Vintage The Chief GMT 40/);
   assert.match(html, /Next purchase/);
   assert.match(html, /\/watches\/glycine-airman-vintage-the-chief-gmt-40\.webp/);
@@ -71,8 +72,8 @@ test("keeps the watch and notes archive at /archive", async () => {
   assert.match(html, /The order I/);
   assert.match(html, /Audemars Piguet Code 11\.59 Starwheel/);
   assert.match(html, /Ultimate goal/);
-  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 18);
-  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 18);
+  assert.equal((html.match(/class="watch-card"/g) ?? []).length, 19);
+  assert.equal((html.match(/class="watch-photo"/g) ?? []).length, 19);
   assert.match(html, /href="\/"/);
 });
 

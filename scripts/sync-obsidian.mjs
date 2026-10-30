@@ -260,6 +260,20 @@ function chipValue(value) {
   return `${cased.slice(0, 52).replace(/[\s,;:–-]+\S*$/, "")}…`;
 }
 
+// Notes are created from a template, so sections can still hold the prompt
+// text. Treat those as empty instead of publishing "Add my thoughts here."
+const PLACEHOLDER =
+  /^(add (my|your) (thoughts|notes|personal notes)( here)?|todo|tbd|n\/?a|none|—|-|_|purchase details not recorded)$/i;
+
+function isPlaceholder(text) {
+  if (!text) return true;
+  const cleaned = plainText(text)
+    .replace(/^[_*\s]+|[_*\s]+$/g, "")
+    .replace(/[.!\s]+$/, "")
+    .trim();
+  return cleaned === "" || PLACEHOLDER.test(cleaned);
+}
+
 function findSpec(specs, pattern) {
   return specs.find((spec) => pattern.test(spec.label))?.value ?? null;
 }
@@ -507,18 +521,27 @@ async function extractWatches(files) {
     const purchaseNote = plainText(purchaseSection);
     const purchaseLead = limitText(firstParagraph(purchaseSection), 260);
 
+    const thoughtsRaw = firstParagraph(section(body, "My Thoughts"));
+    const personalNotesRaw = firstParagraph(section(body, "Personal Notes"));
+    const purchaseLeadReal = isPlaceholder(purchaseLead) ? null : purchaseLead;
+    // Fall back to a factual specification line rather than template text, so
+    // cards for freshly added watches still read as real content.
+    const specSummary =
+      [movement, caseSize, waterResistance].filter(Boolean).join(" · ") || null;
+
     const summary = limitText(
-      firstParagraph(section(body, "My Thoughts")) ||
-        firstParagraph(section(body, "Personal Notes")) ||
-        purchaseLead ||
+      (isPlaceholder(thoughtsRaw) ? null : thoughtsRaw) ||
+        (isPlaceholder(personalNotesRaw) ? null : personalNotesRaw) ||
+        purchaseLeadReal ||
+        specSummary ||
         limitText(specText, 180) ||
         "Details in Obsidian.",
       210,
     );
 
     const notes = bullets(section(body, "Notes"));
-    const thoughts = firstParagraph(section(body, "My Thoughts"));
-    const personalNotes = firstParagraph(section(body, "Personal Notes"));
+    const thoughts = isPlaceholder(thoughtsRaw) ? null : thoughtsRaw;
+    const personalNotes = isPlaceholder(personalNotesRaw) ? null : personalNotesRaw;
 
     const targetPrice = formatPrice(data.target_price_eur);
     const idealPrice = excellentPrice(data.excellent_price_eur);
