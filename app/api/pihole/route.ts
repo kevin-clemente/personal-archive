@@ -8,6 +8,8 @@ type PiholeBindings = {
   PIHOLE_PASSWORD?: string;
   PIHOLE_API_TOKEN?: string;
   PIHOLE_VERSION?: string;
+  PIHOLE_ACCESS_CLIENT_ID?: string;
+  PIHOLE_ACCESS_CLIENT_SECRET?: string;
 };
 
 type PiholeMetrics = {
@@ -79,10 +81,28 @@ function clampPercent(value: number): number {
   return Math.min(100, Math.max(0, Math.round(value * 10) / 10));
 }
 
+function accessHeaders(): Record<string, string> {
+  // When Pi-hole is published through a Cloudflare Tunnel protected by Access,
+  // the Worker must authenticate like any other non-browser client.
+  const clientId = setting("PIHOLE_ACCESS_CLIENT_ID");
+  const clientSecret = setting("PIHOLE_ACCESS_CLIENT_SECRET");
+  if (!clientId || !clientSecret) return {};
+  return {
+    "CF-Access-Client-Id": clientId,
+    "CF-Access-Client-Secret": clientSecret,
+  };
+}
+
 async function request(url: string, init: RequestInit = {}): Promise<Response> {
+  const headers = new Headers(init.headers);
+  for (const [name, value] of Object.entries(accessHeaders())) {
+    headers.set(name, value);
+  }
+
   try {
     return await fetch(url, {
       ...init,
+      headers,
       cache: "no-store",
       signal: AbortSignal.timeout(6000),
     });

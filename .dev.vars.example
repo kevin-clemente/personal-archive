@@ -12,3 +12,9 @@ PIHOLE_PASSWORD=
 
 # Optional: force the API version when auto-detection is ambiguous.
 # PIHOLE_VERSION=v6
+
+# Required when PIHOLE_URL is behind Cloudflare Access (e.g. a Tunnel hostname).
+# Create a service token under Zero Trust → Access → Service Auth, then allow it
+# with a non_identity policy on the Pi-hole application.
+# PIHOLE_ACCESS_CLIENT_ID=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.access
+# PIHOLE_ACCESS_CLIENT_SECRET=cfast_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
